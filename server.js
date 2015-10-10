@@ -16,6 +16,10 @@ io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
   });
+
+  socket.on('move ball', function(msg){
+    io.emit('chat message', ('x:' + msg.x +  ' y:' : msg.y));
+  });
 });
 
 server.listen(server_port, server_ip_address, function () {
