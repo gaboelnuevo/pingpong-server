@@ -19,6 +19,7 @@ io.on('connection', function(socket){
 
   socket.on('move ball', function(msg){
     io.emit('chat message', ('x:' + msg.x +  ' y:' + msg.y));
+    io.emit('move ball', {x: msg.x, y: msg.y});
   });
 });
 
