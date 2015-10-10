@@ -3,8 +3,8 @@ var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
  
 
 var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
 app.set('port', server_port);
 app.set('ipaddr', server_ip_address);
@@ -19,6 +19,9 @@ io.on('connection', function(socket){
   });
 });
 
-http.listen(server_port,function(){
-  console.log('listening in'+ server_port +' ...');
+server.listen(server_port, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('Example app listening at http://%s:%s', host, port);
 });
