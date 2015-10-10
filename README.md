@@ -1,7 +1,3 @@
+The OpenShift `nodejs` cartridge documentation can be found at:
 
-
-This is the source code for a very simple chat example used for 
-the [Getting Started](http://socket.io/get-started/chat/) guide 
-of the Socket.IO website.
-
-Please refer to it to learn how to run this application.
+http://openshift.github.io/documentation/oo_cartridge_guide.html#nodejs
