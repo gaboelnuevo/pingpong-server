@@ -114,22 +114,11 @@ var SampleApp = function() {
     self.initializeServer = function() {
         self.createRoutes();
         self.app = express.createServer();
-	self.io = require('socket.io')(self.app);
 
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
             self.app.get(r, self.routes[r]);
         }
-
-	app.get('/hello', function(req, res){
-  		res.sendFile(__dirname + '/index.html');
-	});
-
-	io.on('connection', function(socket){
-  		socket.on('chat message', function(msg){
-    		io.emit('chat message', msg);
-  	});
-});
     };
 
 
